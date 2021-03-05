@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="character"
+            type="com.example.marvel.data.model.Character" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/radius_21dp"
+        android:backgroundTint="@color/gray"
+        android:layout_margin="11dp"
+        >
+
+        <ImageView
+            android:id="@+id/imageViewCharacterPhoto"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            setImageUrlWithRadius="@{character.thumbnail.path + '.' + character.thumbnail.extension}"
+            tools:src="@color/design_default_color_primary_variant"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintWidth_percent="0.35"
+            app:layout_constraintDimensionRatio="H,1:1"
+            android:layout_margin="11dp"
+           />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Character Name"
+            android:text="@{character.name}"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@+id/imageViewCharacterPhoto"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewCharacterPhoto"
+            app:layout_constraintLeft_toRightOf="@+id/imageViewCharacterPhoto"
+            android:layout_marginStart="11dp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
